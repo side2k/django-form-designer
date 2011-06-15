@@ -15,7 +15,6 @@ class FormDesignerPlugin(CMSPluginBase):
             self.render_template = instance.form_definition.form_template_name
         else:
             self.render_template = app_settings.get('FORM_DESIGNER_DEFAULT_FORM_TEMPLATE')
-        context.update(process_form(context['request'], instance.form_definition, is_cms_plugin=True))
-        return context
+        return process_form(context['request'], instance.form_definition, is_cms_plugin=True)
 
 plugin_pool.register_plugin(FormDesignerPlugin)
